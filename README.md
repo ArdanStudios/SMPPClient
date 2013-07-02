@@ -9,17 +9,17 @@ SMPP Client in C#
 This class library implements the SMPP 3.14 protocol for use within .Net application. It can be used to build both
 ESME and SMSC based software.
 
-Key Features
-1. Fully tested production code. Can handle millions of transactions a day.
-2. ESMEManager support mutiple binds of different types. Will round-robin on Transmitter and Transceiver bind.
-3. Will log the Full PDU to stdout.
-4. Support for SQL Server to store PDU's.
-5. Reconnection support when connection drop. Implements the Enquire link rules.
-6. Supports Encoding for ASCII, Latin1 and UTF-16. Handles Default data coding rules.
-7. Event driven API so all the details are taken care of.
-8. Working console based test application.
+Key Features<br />
+1. Fully tested production code. Can handle millions of transactions a day.<br />
+2. ESMEManager support mutiple binds of different types. Will round-robin on Transmitter and Transceiver bind.<br />
+3. Will log the Full PDU to stdout.<br />
+4. Support for SQL Server to store PDU's.<br />
+5. Reconnection support when connection drop. Implements the Enquire link rules.<br />
+6. Supports Encoding for ASCII, Latin1 and UTF-16. Handles Default data coding rules.<br />
+7. Event driven API so all the details are taken care of.<br />
+8. Working console based test application.<br />
 
-Extended Support
+Extended Support<br />
 Ardan Studios has frameworks for using the SMPP client in a windows service. We also have bare bones services for an ESME and SMSC implementation.
 
 Contact Ardan Studios at bill@ardanstudios.com for more information.
