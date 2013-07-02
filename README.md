@@ -6,7 +6,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 
 SMPP Client in C#
 
-This class library implements the SMPP 3.14 protocol for use within .Net application. It can be used to build both
+This class library implements the SMPP 3.4 protocol for use within .Net application. It can be used to build both
 ESME and SMSC based software.
 
 Key Features<br />
