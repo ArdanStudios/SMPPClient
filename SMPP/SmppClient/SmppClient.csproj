@@ -250,7 +250,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Documentation\SMPP_v3_4_Issue1_2.pdf" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="DataTypes\spSMPP_Pdu_Insert.sql" />
     <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
