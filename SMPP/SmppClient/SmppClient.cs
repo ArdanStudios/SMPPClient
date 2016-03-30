@@ -1631,10 +1631,10 @@ namespace ArdanStudios.Common.SmppClient
                     }
                     else
                     {
-                        // Subtract 6 bytes for the UDHI header
-                        maxBytes = maxBytes - 6;
+                        //Since we are including UDHI header
+                        maxBytes = 153;
 
-                        if (encodeDataCoding == DataCodings.Default       ||
+                       /* if (encodeDataCoding == DataCodings.Default       ||
                             encodeDataCoding == DataCodings.ASCII         ||
                             encodeDataCoding == DataCodings.Latin1        ||
                             encodeDataCoding == DataCodings.Latin1Escape  ||
@@ -1642,20 +1642,20 @@ namespace ArdanStudios.Common.SmppClient
                         {
                             maxBytes = Convert.ToInt32(Math.Floor(Convert.ToDouble(maxBytes) * 8 / 7));
                         }
-
+                        */
                         byte messageReference = SequenceGenerator.ByteCounter;
                         int sequenceNumber = 1;
 
                         // Split the message in parts we can send
-                        List<byte[]> parts = SmppBuffer.SplitMessageOnParts(messageBytes, maxBytes);
-
+                        //List<byte[]> parts = SmppBuffer.SplitMessageOnParts(messageBytes, maxBytes);
+                        var parts = SmppBuffer.Split(message, maxBytes);
                         foreach (byte[] part in parts)
                         {
                             SubmitSm submitSm = SubmitSm.Create(DefaultEncoding, serviceType, srcTon, srcNpi, srcAddr, destTon, destNpi, destAddr);
 
                             submitSm.DataCoding = submitDataCoding;
                             submitSm.UserData.Headers.AddConcatenatedShortMessages8bit(DefaultEncoding, messageReference, Convert.ToByte(parts.Count), Convert.ToByte(sequenceNumber));
-                            submitSm.ShortMessageBytes = part;
+                            submitSm.ShortMessageBytes = new SmppBuffer(DefaultEncoding, part, encodeDataCoding).Buffer;
                             submitSmList.Add(submitSm);
 
                             sequenceNumber++;
