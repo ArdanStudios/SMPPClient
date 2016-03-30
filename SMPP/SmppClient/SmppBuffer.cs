@@ -1214,7 +1214,25 @@ namespace ArdanStudios.Common.SmppClient
 
             return messageParts;
         }
-
+ 	/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="maxPartLength"></param>
+        /// <returns></returns>
+        ///This part was taken out of another lib. was had concatenated messages working
+        public static List<String> Split(string message, int maxPartLength)
+        {
+            var result = new List<String>();
+            for (var i = 0; i < message.Length; i += maxPartLength)
+            {
+                var chunkSize = i + maxPartLength < message.Length ? maxPartLength : message.Length - i;
+                var chunk = new char[chunkSize];
+                message.CopyTo(i, chunk, 0, chunkSize);
+                result.Add(new string(chunk));
+            }
+            return result;
+        }
         #endregion
         
         #region Type Conversion Methods
