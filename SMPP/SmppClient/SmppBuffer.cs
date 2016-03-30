@@ -1220,7 +1220,7 @@ namespace ArdanStudios.Common.SmppClient
         /// <param name="message"></param>
         /// <param name="maxPartLength"></param>
         /// <returns></returns>
-        ///This part was taken out of another lib. was had concatenated messages working
+        ///This part was taken out of another lib. which had concatenated messages working
         public static List<String> Split(string message, int maxPartLength)
         {
             var result = new List<String>();
