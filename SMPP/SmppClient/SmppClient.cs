@@ -1649,7 +1649,7 @@ namespace ArdanStudios.Common.SmppClient
                         // Split the message in parts we can send
                         //List<byte[]> parts = SmppBuffer.SplitMessageOnParts(messageBytes, maxBytes);
                         var parts = SmppBuffer.Split(message, maxBytes);
-                        foreach (byte[] part in parts)
+                        foreach (string part in parts)
                         {
                             SubmitSm submitSm = SubmitSm.Create(DefaultEncoding, serviceType, srcTon, srcNpi, srcAddr, destTon, destNpi, destAddr);
 
