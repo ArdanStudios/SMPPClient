@@ -21,11 +21,11 @@ namespace SmppTestClient
 
         static void Main(string[] args)
         {
-            string server = "gateway.domain.com";       // IP Address or Name of the server
-            short port = 9900;                          // Port
+            string server = "209.133.221.35";       // IP Address or Name of the server
+            short port = 2794;                          // Port
             string shortLongCode = "55555";             // The short or long code for this bind
-            string systemId = "systemid";               // The system id for authentication
-            string password = "password";               // The password of authentication
+            string systemId = "ASMP4569";               // The system id for authentication
+            string password = "aLUNeO2u";               // The password of authentication
             DataCodings dataCoding = DataCodings.ASCII; // The encoding to use if Default is returned in any PDU or encoding request
 
             // Create a esme manager to communicate with an ESME
@@ -53,7 +53,7 @@ namespace SmppTestClient
                 // Hit Enter in the terminal once the binds are up to see this prompt
 
                 Console.WriteLine("Commands");
-                Console.WriteLine("send 12223334444 hello jack");
+                Console.WriteLine("send 5551991096510 hello");
                 Console.WriteLine("quit");
                 Console.WriteLine("");
 
@@ -120,6 +120,7 @@ namespace SmppTestClient
             SubmitSm submitSm = null;
             SubmitSmResp submitSmResp = null;
             connectionManager.SendMessage(phoneNumber, null, Ton.National, Npi.ISDN, submitDataCoding, encodeDataCoding, message, out submitSm, out submitSmResp);
+            Console.Write("submitSm:{0}, submitSmResp:{1}, messageId:{2}", submitSm.DestAddr, submitSmResp.Status, submitSmResp.MessageId);
         }
 
         private static void QueryMessage(string command)
@@ -128,11 +129,23 @@ namespace SmppTestClient
             string messageId = parts[1];
 
             QuerySm querySm = connectionManager.SendQuery(messageId);
+            Console.WriteLine(querySm.Status.ToString());
         }
 
-        private static void ReceivedMessageHandler(string logKey, string serviceType, Ton sourceTon, Npi sourceNpi, string shortLongCode, DateTime dateReceived, string phoneNumber, DataCodings dataCoding, string message)
+        private static void ReceivedMessageHandler(string logKey, MessageTypes messageType, string serviceType, Ton sourceTon, Npi sourceNpi, string shortLongCode, DateTime dateReceived, string phoneNumber, DataCodings dataCoding, string message)
         {
-            Console.WriteLine("ReceivedMessageHandler: {0}", message);
+            if(messageType == MessageTypes.SMSCDeliveryReceipt)
+            {
+                Console.WriteLine("This is the message for the status of delivery");
+                Console.WriteLine("MessageType: " + messageType.ToString());
+                Console.WriteLine("ReceivedMessageHandler: {0}", message);
+            }
+            else
+            {
+                Console.Write("This is normal message");
+                Console.WriteLine("MessageType: " + messageType.ToString());
+                Console.WriteLine("ReceivedMessageHandler: {0}", message);
+            }
         }
 
         private static void ReceivedGenericNackHandler(string logKey, int sequence)
@@ -151,7 +164,7 @@ namespace SmppTestClient
 
         private static void LogEventHandler(LogEventNotificationTypes logEventNotificationType, string logKey, string shortLongCode, string message)
         {
-            Console.WriteLine(message);
+            //Console.WriteLine(message);
         }
 
         private static void ConnectionEventHandler(string logKey, ConnectionEventTypes connectionEventType, string message)
