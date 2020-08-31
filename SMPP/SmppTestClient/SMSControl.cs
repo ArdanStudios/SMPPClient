@@ -21,11 +21,11 @@ namespace SmppTestClient
 
         static void Main(string[] args)
         {
-            string server = "209.133.221.35";       // IP Address or Name of the server
-            short port = 2794;                          // Port
+            string server = "host";       // IP Address or Name of the server
+            short port = 7777;                          // Port
             string shortLongCode = "55555";             // The short or long code for this bind
-            string systemId = "ASMP4569";               // The system id for authentication
-            string password = "aLUNeO2u";               // The password of authentication
+            string systemId = "systemId";               // The system id for authentication
+            string password = "password";               // The password of authentication
             DataCodings dataCoding = DataCodings.ASCII; // The encoding to use if Default is returned in any PDU or encoding request
 
             // Create a esme manager to communicate with an ESME
@@ -53,7 +53,7 @@ namespace SmppTestClient
                 // Hit Enter in the terminal once the binds are up to see this prompt
 
                 Console.WriteLine("Commands");
-                Console.WriteLine("send 5551991096510 hello");
+                Console.WriteLine("send 5555555555 hello");
                 Console.WriteLine("quit");
                 Console.WriteLine("");
 
