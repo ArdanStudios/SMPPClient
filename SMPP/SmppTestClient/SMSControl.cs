@@ -120,6 +120,7 @@ namespace SmppTestClient
             SubmitSm submitSm = null;
             SubmitSmResp submitSmResp = null;
             connectionManager.SendMessage(phoneNumber, null, Ton.National, Npi.ISDN, submitDataCoding, encodeDataCoding, message, out submitSm, out submitSmResp);
+            Console.Write("submitSm:{0}, submitSmResp:{1}, messageId:{2}", submitSm.DestAddr, submitSmResp.Status, submitSmResp.MessageId);
         }
 
         private static void QueryMessage(string command)
@@ -128,11 +129,23 @@ namespace SmppTestClient
             string messageId = parts[1];
 
             QuerySm querySm = connectionManager.SendQuery(messageId);
+            Console.WriteLine(querySm.Status.ToString());
         }
 
-        private static void ReceivedMessageHandler(string logKey, string serviceType, Ton sourceTon, Npi sourceNpi, string shortLongCode, DateTime dateReceived, string phoneNumber, DataCodings dataCoding, string message)
+        private static void ReceivedMessageHandler(string logKey, MessageTypes messageType, string serviceType, Ton sourceTon, Npi sourceNpi, string shortLongCode, DateTime dateReceived, string phoneNumber, DataCodings dataCoding, string message)
         {
-            Console.WriteLine("ReceivedMessageHandler: {0}", message);
+            if(messageType == MessageTypes.SMSCDeliveryReceipt)
+            {
+                Console.WriteLine("This is the message for the status of delivery");
+                Console.WriteLine("MessageType: " + messageType.ToString());
+                Console.WriteLine("ReceivedMessageHandler: {0}", message);
+            }
+            else
+            {
+                Console.Write("This is normal message");
+                Console.WriteLine("MessageType: " + messageType.ToString());
+                Console.WriteLine("ReceivedMessageHandler: {0}", message);
+            }
         }
 
         private static void ReceivedGenericNackHandler(string logKey, int sequence)

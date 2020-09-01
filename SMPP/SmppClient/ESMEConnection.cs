@@ -25,7 +25,7 @@ namespace ArdanStudios.Common.SmppClient
         /// <param name="phoneNumber"></param>
         /// <param name="dataCoding"></param>
         /// <param name="message"></param>
-        public delegate void RECEIVED_MESSAGE_HANDLER(string logKey, string serviceType, Ton sourceTon, Npi sourceNpi, string shortLongCode, DateTime dateReceived, string phoneNumber, DataCodings dataCoding, string message);
+        public delegate void RECEIVED_MESSAGE_HANDLER(string logKey, MessageTypes messageType, string serviceType, Ton sourceTon, Npi sourceNpi, string shortLongCode, DateTime dateReceived, string phoneNumber, DataCodings dataCoding, string message);
 
         /// <summary> Called when a submit message is acknowledged </summary>
         /// <param name="logKey"></param>
@@ -958,7 +958,7 @@ namespace ArdanStudios.Common.SmppClient
                 if ((message != null) && (ReceivedMessageHandler != null))
                 {
                     // Message has been received
-                    ReceivedMessageHandler(LogKey, data.ServiceType, (Ton) data.SourceTon, (Npi) data.SourceNpi, ShortLongCode, DateTime.Now, data.SourceAddr, data.DataCoding, message);
+                    ReceivedMessageHandler(LogKey, data.MessageType, data.ServiceType, (Ton) data.SourceTon, (Npi) data.SourceNpi, ShortLongCode, DateTime.Now, data.SourceAddr, data.DataCoding, message);
                 }
             }
 
