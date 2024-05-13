@@ -1,12 +1,10 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmppClient", "SmppClient\SmppClient.csproj", "{8CBF9913-5ED6-4C40-8675-385FE08F15AA}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmppClient", "SmppClient\SmppClient.csproj", "{8CBF9913-5ED6-4C40-8675-385FE08F15AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmppTestClient", "SmppTestClient\SmppTestClient.csproj", "{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8CBF9913-5ED6-4C40-8675-385FE08F15AA} = {8CBF9913-5ED6-4C40-8675-385FE08F15AA}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmppTestClient", "SmppTestClient\SmppTestClient.csproj", "{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,18 +26,23 @@ Global
 		{8CBF9913-5ED6-4C40-8675-385FE08F15AA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8CBF9913-5ED6-4C40-8675-385FE08F15AA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8CBF9913-5ED6-4C40-8675-385FE08F15AA}.Release|x86.ActiveCfg = Release|Any CPU
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Debug|x86.ActiveCfg = Debug|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Debug|x86.Build.0 = Debug|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Release|Any CPU.ActiveCfg = Release|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Release|Mixed Platforms.Build.0 = Release|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Release|x86.ActiveCfg = Release|x86
-		{C3B794E3-E55C-4A0B-9AC4-BE31B93B2ADD}.Release|x86.Build.0 = Release|x86
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Debug|x86.Build.0 = Debug|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CF6060A-904C-41E8-BCA2-C63114DFFCB0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24DDD7FA-6419-43B9-ACF8-39C4D4E6D3C6}
 	EndGlobalSection
 EndGlobal

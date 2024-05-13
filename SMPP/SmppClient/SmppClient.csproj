@@ -1,281 +1,147 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-  <PropertyGroup>
-    <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8CBF9913-5ED6-4C40-8675-385FE08F15AA}</ProjectGuid>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>
-    </ApplicationIcon>
-    <AssemblyKeyContainerName>
-    </AssemblyKeyContainerName>
-    <AssemblyName>ArdanStudios.Common.SmppClient</AssemblyName>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-    <DefaultClientScript>JScript</DefaultClientScript>
-    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
-    <DefaultTargetSchema>IE50</DefaultTargetSchema>
-    <DelaySign>false</DelaySign>
-    <OutputType>Library</OutputType>
-    <RootNamespace>ArdanStudios.Common.SmppClient</RootNamespace>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>
-    </StartupObject>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
-    <SignAssembly>true</SignAssembly>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <PublishUrl>http://localhost/ALT.SMS.SmppClient/</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\Binaries\</OutputPath>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <BaseAddress>285212672</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>..\..\Binaries\ArdanStudios.Common.SmppClient.xml</DocumentationFile>
-    <DebugSymbols>true</DebugSymbols>
-    <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn>
-    </NoWarn>
-    <Optimize>false</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <DebugType>full</DebugType>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\Binaries\</OutputPath>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <BaseAddress>285212672</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
-    <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>..\..\Binaries\ArdanStudios.Common.SmppClient.xml</DocumentationFile>
-    <DebugSymbols>true</DebugSymbols>
-    <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn>
-    </NoWarn>
-    <Optimize>true</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <DebugType>pdbonly</DebugType>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System">
-      <Name>System</Name>
-    </Reference>
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data">
-      <Name>System.Data</Name>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Xml">
-      <Name>System.XML</Name>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AlertNotification.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="App\PduApp.cs" />
-    <Compile Include="Constants.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CancelSm.cs" />
-    <Compile Include="CancelSmResp.cs" />
-    <Compile Include="Data\PduData.cs" />
-    <Compile Include="ESMEConnection.cs" />
-    <Compile Include="ESMEManager.cs" />
-    <Compile Include="IPduDetails.cs" />
-    <Compile Include="DataTypes\PduDataBlocksList.cs" />
-    <Compile Include="PduPropertyDetail.cs" />
-    <Compile Include="DataTypes\PduPropertyDetailList.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnsuccessDestinationAddress.cs" />
-    <Compile Include="SubmitMultiSmResp.cs" />
-    <Compile Include="DestinationAddress.cs" />
-    <Compile Include="SubmitMultiSm.cs" />
-    <Compile Include="DataSm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DataSmResp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DeliverSm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DeliverSmResp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="EnquireLinkSm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="EnquireLinkSmResp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GenericNackSm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Header.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="IPacket.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BindSm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BindSmResp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UnBindSm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UnBindSmResp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="QuerySm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="QuerySmResp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SequenceGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SmppBuffer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SmppClient.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SubmitSm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SubmitSmResp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TLV.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TLVCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserData.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserDataHeader.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserDataHeaderCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Utilities\DataTransaction.cs" />
-    <Compile Include="Utilities\SynchronousTimer.cs" />
-    <Compile Include="Utilities\UtilSockets.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Documentation\SMPP_v3_4_Issue1_2.pdf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataTypes\spSMPP_Pdu_Insert.sql" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Common.pdb" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Data.pdb" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Data.xml" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.pdb" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.xml" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.ServiceLocation.dll" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.ServiceLocation.pdb" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.dll" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.Interception.dll" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.Interception.pdb" />
-    <Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.pdb" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ProjectType>Local</ProjectType>
+		<AssemblyKeyContainerName>
+		</AssemblyKeyContainerName>
+		<AssemblyName>ArdanStudios.Common.SmppClient</AssemblyName>
+		<AssemblyOriginatorKeyFile>
+		</AssemblyOriginatorKeyFile>
+		<DefaultClientScript>JScript</DefaultClientScript>
+		<DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+		<DefaultTargetSchema>IE50</DefaultTargetSchema>
+		<DelaySign>false</DelaySign>
+		<OutputType>Library</OutputType>
+		<RootNamespace>ArdanStudios.Common.SmppClient</RootNamespace>
+		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+		<StartupObject>
+		</StartupObject>
+		<SccProjectName>
+		</SccProjectName>
+		<SccLocalPath>
+		</SccLocalPath>
+		<SccAuxPath>
+		</SccAuxPath>
+		<SccProvider>
+		</SccProvider>
+		<IsWebBootstrapper>true</IsWebBootstrapper>
+		<SignAssembly>true</SignAssembly>
+		<PublishUrl>http://localhost/ALT.SMS.SmppClient/</PublishUrl>
+		<Install>true</Install>
+		<InstallFrom>Web</InstallFrom>
+		<UpdateEnabled>true</UpdateEnabled>
+		<UpdateMode>Foreground</UpdateMode>
+		<UpdateInterval>7</UpdateInterval>
+		<UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		<UpdatePeriodically>false</UpdatePeriodically>
+		<UpdateRequired>false</UpdateRequired>
+		<MapFileExtensions>true</MapFileExtensions>
+		<ApplicationRevision>0</ApplicationRevision>
+		<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		<UseApplicationTrust>false</UseApplicationTrust>
+		<BootstrapperEnabled>true</BootstrapperEnabled>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<OutputPath>..\..\Binaries\</OutputPath>
+		<BaseAddress>285212672</BaseAddress>
+		<ConfigurationOverrideFile>
+		</ConfigurationOverrideFile>
+		<DocumentationFile>..\..\Binaries\ArdanStudios.Common.SmppClient.xml</DocumentationFile>
+		<FileAlignment>4096</FileAlignment>
+		<NoStdLib>false</NoStdLib>
+		<NoWarn>
+		</NoWarn>
+		<RegisterForComInterop>false</RegisterForComInterop>
+		<RemoveIntegerChecks>false</RemoveIntegerChecks>
+		<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<OutputPath>..\..\Binaries\</OutputPath>
+		<BaseAddress>285212672</BaseAddress>
+		<ConfigurationOverrideFile>
+		</ConfigurationOverrideFile>
+		<DocumentationFile>..\..\Binaries\ArdanStudios.Common.SmppClient.xml</DocumentationFile>
+		<DebugSymbols>true</DebugSymbols>
+		<FileAlignment>4096</FileAlignment>
+		<NoStdLib>false</NoStdLib>
+		<NoWarn>
+		</NoWarn>
+		<RegisterForComInterop>false</RegisterForComInterop>
+		<RemoveIntegerChecks>false</RemoveIntegerChecks>
+		<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Update="System">
+			<Name>System</Name>
+		</Reference>
+		<Reference Update="System.Core">
+			<RequiredTargetFramework>3.5</RequiredTargetFramework>
+		</Reference>
+		<Reference Update="System.Data">
+			<Name>System.Data</Name>
+			<Private>False</Private>
+		</Reference>
+		<Reference Update="System.Xml">
+			<Name>System.XML</Name>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+			<Visible>False</Visible>
+			<ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+			<Install>false</Install>
+		</BootstrapperPackage>
+		<BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+			<Visible>False</Visible>
+			<ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+			<Install>true</Install>
+		</BootstrapperPackage>
+		<BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+			<Visible>False</Visible>
+			<ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+			<Install>false</Install>
+		</BootstrapperPackage>
+		<BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+			<Visible>False</Visible>
+			<ProductName>.NET Framework 3.5</ProductName>
+			<Install>false</Install>
+		</BootstrapperPackage>
+		<BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+			<Visible>False</Visible>
+			<ProductName>.NET Framework 3.5 SP1</ProductName>
+			<Install>false</Install>
+		</BootstrapperPackage>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="DataTypes\spSMPP_Pdu_Insert.sql" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Common.pdb" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Data.pdb" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Data.xml" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.pdb" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.xml" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.ServiceLocation.dll" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.ServiceLocation.pdb" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.dll" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.Interception.dll" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.Interception.pdb" />
+		<Content Include="Libraries\EnterpriseLib\Microsoft.Practices.Unity.pdb" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="EnterpriseLibrary.Data" Version="6.0.1304" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+	</ItemGroup>
+	<PropertyGroup>
+		<AssemblyTitle>SMPP Client</AssemblyTitle>
+		<Company>Ardan Studios</Company>
+		<Product>SMPP Client</Product>
+		<Copyright>Copyright © Ardan Studios 2011-2013</Copyright>
+		<FileVersion>1.0.13120.1</FileVersion>
+		<InformationalVersion>1.0.13120.1</InformationalVersion>
+		<AssemblyVersion>1.0.13120.1</AssemblyVersion>
+	</PropertyGroup>
 </Project>

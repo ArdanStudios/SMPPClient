@@ -1,10 +1,8 @@
 ﻿#region Namespaces
 
+using Microsoft.Data.SqlClient.Server;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.SqlServer.Server;
 using System.Data;
 
 #endregion
@@ -30,31 +28,31 @@ namespace ArdanStudios.Common.SmppClient.DataTypes
         /// <summary> Provides an enumerator for the list of PduPropertyDetails </summary>
         /// <returns> IEnumerator SqlDataRecord </returns>
         IEnumerator<SqlDataRecord> IEnumerable<SqlDataRecord>.GetEnumerator()
-		{
-			SqlDataRecord sqlDataRecord = new SqlDataRecord
-								          (
-								        	  new SqlMetaData("StartingBytePosition", SqlDbType.Int),
-								        	  new SqlMetaData("PduDataTypeId", SqlDbType.TinyInt),
-								        	  new SqlMetaData("DataBlock", SqlDbType.NVarChar, SqlMetaData.Max),
-								        	  new SqlMetaData("PropertyName", SqlDbType.NVarChar, 50),
-								        	  new SqlMetaData("Value", SqlDbType.NVarChar, 255)
-								          );
+        {
+            SqlDataRecord sqlDataRecord = new SqlDataRecord
+                                          (
+                                              new SqlMetaData("StartingBytePosition", SqlDbType.Int),
+                                              new SqlMetaData("PduDataTypeId", SqlDbType.TinyInt),
+                                              new SqlMetaData("DataBlock", SqlDbType.NVarChar, SqlMetaData.Max),
+                                              new SqlMetaData("PropertyName", SqlDbType.NVarChar, 50),
+                                              new SqlMetaData("Value", SqlDbType.NVarChar, 255)
+                                          );
 
-			foreach (PduPropertyDetail pduPropertyDetail in this)
-			{
-				sqlDataRecord.SetInt32(0, pduPropertyDetail.StartingBytePosition);
-				sqlDataRecord.SetByte(1, (byte) pduPropertyDetail.PduDataType);
+            foreach (PduPropertyDetail pduPropertyDetail in this)
+            {
+                sqlDataRecord.SetInt32(0, pduPropertyDetail.StartingBytePosition);
+                sqlDataRecord.SetByte(1, (byte)pduPropertyDetail.PduDataType);
 
                 if (pduPropertyDetail.DataBlock != null)
                 {
-				    sqlDataRecord.SetValue(2, BitConverter.ToString(pduPropertyDetail.DataBlock).Replace("-", " "));
+                    sqlDataRecord.SetValue(2, BitConverter.ToString(pduPropertyDetail.DataBlock).Replace("-", " "));
                 }
                 else
                 {
                     sqlDataRecord.SetValue(2, null);
                 }
 
-				sqlDataRecord.SetString(3, pduPropertyDetail.Name);
+                sqlDataRecord.SetString(3, pduPropertyDetail.Name);
 
                 switch (pduPropertyDetail.PduDataType)
                 {
@@ -81,7 +79,7 @@ namespace ArdanStudios.Common.SmppClient.DataTypes
                     case PduDataTypes.UShort:
                         sqlDataRecord.SetString(4, pduPropertyDetail.ValueUShort.ToString());
                         break;
-                    
+
                     case PduDataTypes.ByteArray:
                         sqlDataRecord.SetValue(4, BitConverter.ToString(pduPropertyDetail.DataBlock).Replace("-", " "));
                         break;
@@ -91,8 +89,8 @@ namespace ArdanStudios.Common.SmppClient.DataTypes
                         break;
                 }
 
-				yield return sqlDataRecord;
-			}
+                yield return sqlDataRecord;
+            }
         }
 
         #endregion

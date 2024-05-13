@@ -1,10 +1,7 @@
 ﻿#region Namespaces
 
-using System;
+using Microsoft.Data.SqlClient.Server;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.SqlServer.Server;
 using System.Data;
 
 #endregion
@@ -30,21 +27,21 @@ namespace ArdanStudios.Common.SmppClient.DataTypes
         /// <summary> Provides an enumerator for the list of PduPropertyDetails </summary>
         /// <returns> IEnumerator SqlDataRecord </returns>
         IEnumerator<SqlDataRecord> IEnumerable<SqlDataRecord>.GetEnumerator()
-		{
-			SqlDataRecord sqlDataRecord = new SqlDataRecord
-								          (
-								        	  new SqlMetaData("StartingBytePosition", SqlDbType.Int),
-								        	  new SqlMetaData("DataBlock", SqlDbType.VarBinary, SqlMetaData.Max)
-								          );
+        {
+            SqlDataRecord sqlDataRecord = new SqlDataRecord
+                                          (
+                                              new SqlMetaData("StartingBytePosition", SqlDbType.Int),
+                                              new SqlMetaData("DataBlock", SqlDbType.VarBinary, SqlMetaData.Max)
+                                          );
 
             int sequence = 0;
-			foreach (byte[] dataBlock in this)
-			{
-				sqlDataRecord.SetInt32(0, ++sequence);
+            foreach (byte[] dataBlock in this)
+            {
+                sqlDataRecord.SetInt32(0, ++sequence);
                 sqlDataRecord.SetValue(1, dataBlock);
 
-				yield return sqlDataRecord;
-			}
+                yield return sqlDataRecord;
+            }
         }
 
         #endregion
