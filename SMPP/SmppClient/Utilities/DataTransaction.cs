@@ -1,19 +1,15 @@
 ﻿#region Namespaces
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.Common;
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Xml;
-
-using Microsoft.SqlServer.Server;
-using Microsoft.Practices.EnterpriseLibrary;
+using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient.Server;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Text;
+using System.Xml;
 
 #endregion
 
@@ -60,7 +56,7 @@ namespace ArdanStudios.Common.Data
             connection = null;
             transaction = null;
         }
-        
+
         /// <summary> Constructor: Passing null for connectionString will use default connection </summary>
         /// <param name="connectionString"></param>
         public DataTransaction(string connectionString)
@@ -194,7 +190,7 @@ namespace ArdanStudios.Common.Data
         {
             database.AddInParameter(command, name, DbType.Int16, value);
         }
-        
+
         /// <summary> Adds a new Integer In parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -212,7 +208,7 @@ namespace ArdanStudios.Common.Data
         {
             database.AddInParameter(command, name, DbType.Int64, value);
         }
-        
+
         /// <summary> Adds a new Unsigned Long In parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -244,7 +240,7 @@ namespace ArdanStudios.Common.Data
 
             database.AddInParameter(command, name, DbType.Decimal, value);
         }
-        
+
         /// <summary> Adds a new Double In parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -262,7 +258,7 @@ namespace ArdanStudios.Common.Data
         {
             database.AddInParameter(command, name, DbType.DateTime, value);
         }
-        
+
         /// <summary> Adds a new TimeSpan In parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -329,13 +325,13 @@ namespace ArdanStudios.Common.Data
         #endregion
 
         #region Out Parameter Support
-        
+
         /// <summary> Adds a new Boolean parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
         public void AddOutParameterBoolean(DbCommand command, string name)
         {
-            database.AddOutParameter(command, name, DbType.Boolean , 1);
+            database.AddOutParameter(command, name, DbType.Boolean, 1);
         }
 
         /// <summary> Adds a new DateTime parameter to the command object </summary>
@@ -394,7 +390,7 @@ namespace ArdanStudios.Common.Data
         {
             database.AddOutParameter(command, name, DbType.Currency, sizeof(decimal));
         }
-        
+
         /// <summary> Adds a new Double Out parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -402,7 +398,7 @@ namespace ArdanStudios.Common.Data
         {
             database.AddOutParameter(command, name, DbType.Double, sizeof(double));
         }
-        
+
         // <summary> Adds a new Long Out parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -410,7 +406,7 @@ namespace ArdanStudios.Common.Data
         {
             database.AddOutParameter(command, name, DbType.Int64, sizeof(long));
         }
-        
+
         // <summary> Adds a new Unsigned Long Out parameter to the command object </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -447,7 +443,7 @@ namespace ArdanStudios.Common.Data
         {
             // Give us 5 minutes
             command.CommandTimeout = commandTimeout;
-            
+
             if (transaction == null)
             {
                 database.ExecuteNonQuery(command);
@@ -466,18 +462,18 @@ namespace ArdanStudios.Common.Data
         {
             // Give us 5 minutes
             command.CommandTimeout = commandTimeout;
-            
+
             IDataReader dataReader = null;
-            
+
             if (transaction == null)
             {
-                dataReader =  database.ExecuteReader(command);
+                dataReader = database.ExecuteReader(command);
             }
             else
             {
                 dataReader = database.ExecuteReader(command, transaction);
             }
-            
+
             return dataReader;
         }
 
@@ -513,15 +509,15 @@ namespace ArdanStudios.Common.Data
         {
             // Give us 5 minutes
             command.CommandTimeout = commandTimeout;
-            
+
             DataSet dataSet = null;
-            
+
             dataSet = database.ExecuteDataSet(command);
             dataSet.Tables[0].TableName = tableName;
-            
+
             return dataSet;
         }
-        
+
         /// <summary> Execute a command and return a DataSet </summary>
         /// <param name="tableNames"></param>
         /// <param name="command"></param>
@@ -531,15 +527,15 @@ namespace ArdanStudios.Common.Data
         {
             // Give us 5 minutes
             command.CommandTimeout = commandTimeout;
-            
+
             DataSet dataSet = null;
-            
+
             dataSet = database.ExecuteDataSet(command);
             for (int table = 0; table < dataSet.Tables.Count; ++table)
             {
                 dataSet.Tables[table].TableName = tableNames[table];
             }
-            
+
             return dataSet;
         }
 
@@ -573,7 +569,7 @@ namespace ArdanStudios.Common.Data
         {
             return (short)database.GetParameterValue(command, name);
         }
-        
+
         /// <summary> Capture the predefined integer output parameter </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -590,7 +586,7 @@ namespace ArdanStudios.Common.Data
         public int? GetParameterValueIntegerNull(DbCommand command, string name)
         {
             object intVal = database.GetParameterValue(command, name);
-            return (intVal == DBNull.Value) ? null : (int?)intVal; 
+            return (intVal == DBNull.Value) ? null : (int?)intVal;
         }
 
         /// <summary> Capture the predefined string output parameter </summary>
@@ -610,7 +606,7 @@ namespace ArdanStudios.Common.Data
         {
             return (decimal)database.GetParameterValue(command, name);
         }
-        
+
         /// <summary> Capture the predefined double output parameter </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -629,7 +625,7 @@ namespace ArdanStudios.Common.Data
             object value = database.GetParameterValue(command, name);
             return (value == DBNull.Value) ? null : (decimal?)value;
         }
-        
+
         /// <summary> Capture the predefined double output parameter </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -648,7 +644,7 @@ namespace ArdanStudios.Common.Data
         {
             return (DateTime)database.GetParameterValue(command, name);
         }
-        
+
         /// <summary> Capture the predefined TimeSpan output parameter </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -666,7 +662,7 @@ namespace ArdanStudios.Common.Data
         {
             return (long)database.GetParameterValue(command, name);
         }
-        
+
         /// <summary> Capture the predefined unsigned long output parameter </summary>
         /// <param name="command"></param>
         /// <param name="name"></param>
@@ -692,8 +688,8 @@ namespace ArdanStudios.Common.Data
         public byte[] GetParameterValueVarBinary(DbCommand command, string name)
         {
             object obj = database.GetParameterValue(command, name);
-            
-            if(obj == System.DBNull.Value )
+
+            if (obj == System.DBNull.Value)
             {
                 return null;
             }
@@ -776,7 +772,7 @@ namespace ArdanStudios.Common.Data
         {
             return (reader[columnName] == DBNull.Value) ? null : (decimal?)reader[columnName];
         }
-        
+
         /// <summary> Capture the column value for the current row </summary>
         /// <param name="reader"></param>
         /// <param name="columnIndex"></param>
@@ -830,14 +826,14 @@ namespace ArdanStudios.Common.Data
         {
             return (reader[columnName] == DBNull.Value) ? null : (DateTime?)reader[columnName];
         }
-        
+
         /// <summary> Capture the column value for the current row </summary>
         /// <param name="reader"></param>
         /// <param name="columnIndex"></param>
         /// <returns></returns>
         public static TimeSpan? ReadTimeSpan(IDataReader reader, int columnIndex)
         {
-            SqlDataReader IDataReader = ((RefCountingDataReader) reader).InnerReader as SqlDataReader;
+            SqlDataReader IDataReader = ((RefCountingDataReader)reader).InnerReader as SqlDataReader;
 
             return reader.IsDBNull(columnIndex) ? null : (TimeSpan?)IDataReader.GetTimeSpan(columnIndex);
         }
@@ -886,7 +882,7 @@ namespace ArdanStudios.Common.Data
         {
             return (reader[columnName] == DBNull.Value) ? null : (long?)reader[columnName];
         }
-        
+
         /// <summary> Capture the column value for the current row </summary>
         /// <param name="reader"></param>
         /// <param name="columnIndex"></param>
@@ -984,7 +980,7 @@ namespace ArdanStudios.Common.Data
                             if (dbParameter.Direction == ParameterDirection.Input)
                             {
                                 if (dbParameter.Value != DBNull.Value)
-                                    query.AppendFormat("{0} = {1},", dbParameter.ParameterName, ((bool) dbParameter.Value) == true ? "1" : "0");
+                                    query.AppendFormat("{0} = {1},", dbParameter.ParameterName, ((bool)dbParameter.Value) == true ? "1" : "0");
                                 else
                                     query.AppendFormat("{0} = NULL,", dbParameter.ParameterName);
                             }
@@ -1000,7 +996,7 @@ namespace ArdanStudios.Common.Data
                                 tableTypes.Add(typesList);
 
                                 typesList.AppendFormat("DECLARE {0} {1};\r\n", dbParameter.ParameterName, dbParameter.Value.GetType().Name);
-                                IEnumerable<SqlDataRecord> sqlDataRecords = (IEnumerable<SqlDataRecord>) dbParameter.Value;
+                                IEnumerable<SqlDataRecord> sqlDataRecords = (IEnumerable<SqlDataRecord>)dbParameter.Value;
                                 foreach (SqlDataRecord dataRecord in sqlDataRecords)
                                 {
                                     typesList.AppendFormat("INSERT {0} VALUES (", dbParameter.ParameterName);
@@ -1015,7 +1011,7 @@ namespace ArdanStudios.Common.Data
                                                 break;
 
                                             case "Boolean":
-                                                typesList.AppendFormat("{0},", (dataRecord[field] == DBNull.Value) ? "NULL" : (((bool) dataRecord[field])) == true ? "1" : "0");
+                                                typesList.AppendFormat("{0},", (dataRecord[field] == DBNull.Value) ? "NULL" : (((bool)dataRecord[field])) == true ? "1" : "0");
                                                 break;
 
                                             default:
