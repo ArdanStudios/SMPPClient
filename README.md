@@ -1,6 +1,8 @@
 SMPPClient
 ==========
 
+**For use new featuers and bugfixes see https://github.com/BSVN/SMPPClient**
+
 Copyright 2011-2013 Ardan Studios. All rights reserved.<br />
 Use of this source code is governed by a BSD-style license that can be found in the LICENSE handle.
 
